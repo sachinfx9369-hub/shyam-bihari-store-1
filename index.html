@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d09">
+<title>Shyam Bihari Pan Store | Bagaha 2</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080d09;
+  --green:#173b28;
+  --gold:#d8b66c;
+  --lightgold:#f3dfad;
+  --white:#f5f0e5;
+  --muted:#a7aaa0;
+  --glass:rgba(255,255,255,.055);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+a{color:inherit}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(ellipse at 12% 20%,#1d60332c,transparent 42%),
+    radial-gradient(ellipse at 90% 75%,#a57b3322,transparent 40%),
+    #080d09;
+}
+.ambient{
+  position:fixed;
+  z-index:-2;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(85px);
+  opacity:.15;
+  background:#b18b43;
+  animation:ambientMove 24s ease-in-out infinite alternate;
+}
+.ambient.a{top:12%;left:-200px}
+.ambient.b{
+  right:-200px;
+  bottom:5%;
+  background:#1c7040;
+  animation-delay:-12s;
+}
+@keyframes ambientMove{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(50px,35px,0)}
+}
+
+/* NAVIGATION */
+nav{
+  position:fixed;
+  z-index:50;
+  top:14px;
+  left:4%;
+  width:92%;
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  border:1px solid #ffffff25;
+  border-radius:18px;
+  background:rgba(15,25,17,.78);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px #ffffff20,0 12px 35px #0005;
+}
+.brand{
+  font-family:'Playfair Display',serif;
+  font-size:19px;
+  color:var(--lightgold);
+}
+.nav-tag{
+  color:#a5a99f;
+  font-size:9px;
+  letter-spacing:2px;
+}
+.nav-link{
+  text-decoration:none;
+  color:var(--lightgold);
+  border:1px solid #d8b66c66;
+  padding:10px 15px;
+  border-radius:30px;
+  font-size:10px;
+}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:35px;
+  padding:130px 8% 85px;
+}
+.eyebrow{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:23px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:clamp(49px,7vw,88px);
+  line-height:1.05;
+  letter-spacing:-2px;
+}
+.hero h1 span{
+  color:var(--lightgold);
+  font-style:italic;
+}
+.hero-copy{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+  max-width:420px;
+  margin-top:22px;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:14px 20px;
+  border-radius:40px;
+  font-size:11px;
+  letter-spacing:.7px;
+  transition:transform .3s,border-color .3s;
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{
+  color:#17170f;
+  background:linear-gradient(120deg,#f2dda7,#b28b43);
+  box-shadow:0 7px 28px #b28b4325;
+}
+.secondary{
+  color:#eee5d0;
+  border:1px solid #ffffff35;
+  background:#ffffff09;
+}
+.hero-note{
+  margin-top:35px;
+  color:#858d80;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* GLASS PAAN ART */
+.art-wrap{
+  position:relative;
+  min-height:470px;
+  display:grid;
+  place-items:center;
+}
+.art-glass{
+  width:min(100%,410px);
+  aspect-ratio:1/1.08;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  border-radius:48% 48% 30px 30px;
+  border:1px solid #ffffff2c;
+  background:
+    linear-gradient(145deg,#ffffff17,#ffffff03 45%,#c59c4b12),
+    radial-gradient(ellipse at 50% 80%,#1a492d80,transparent 70%);
+  backdrop-filter:blur(17px);
+  -webkit-backdrop-filter:blur(17px);
+  box-shadow:
+    inset 0 1px 2px #ffffff35,
+    inset 0 -25px 55px #c29a4110,
+    0 25px 80px #0007;
+}
+.art-glass:before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:inherit;
+  border:1px solid #ffffff0e;
+  pointer-events:none;
+}
+.art-glass:after{
+  content:"";
+  position:absolute;
+  width:75%;
+  height:35%;
+  top:-10%;
+  left:-10%;
+  border-radius:50%;
+  background:#ffffff0c;
+  filter:blur(30px);
+}
+.leaf-svg{
+  width:82%;
+  max-width:340px;
+  position:relative;
+  z-index:2;
+  filter:drop-shadow(0 22px 25px #0008);
+  animation:leafFloat 7s ease-in-out infinite alternate;
+}
+@keyframes leafFloat{
+  from{transform:translateY(4px) rotate(-2deg)}
+  to{transform:translateY(-9px) rotate(2deg)}
+}
+.art-caption{
+  position:absolute;
+  z-index:4;
+  bottom:22px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:9px;
+  letter-spacing:4px;
+  color:var(--lightgold);
+}
+.floating-label{
+  position:absolute;
+  z-index:5;
+  padding:13px 17px;
+  border:1px solid #ffffff25;
+  background:rgba(15,26,17,.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-radius:14px;
+  color:#e9d49e;
+  font-size:10px;
+  letter-spacing:1px;
+  box-shadow:0 10px 30px #0005;
+}
+.label-one{top:17%;left:-5%}
+.label-two{right:-5%;bottom:19%}
+
+/* GLASS SECTIONS */
+.section{
+  padding:105px 8%;
+  position:relative;
+}
+.section-top{
+  max-width:620px;
+}
+.section-tag{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:18px;
+}
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(37px,6vw,65px);
+  line-height:1.12;
+  font-weight:500;
+}
+.section-intro{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  max-width:490px;
+}
+.glass{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #ffffff20;
+  border-radius:24px;
+  background:
+    linear-gradient(135deg,#ffffff12,#ffffff04 50%,#d8b66c0b);
+  backdrop-filter:blur(13px);
+  -webkit-backdrop-filter:blur(13px);
+  box-shadow:
+    inset 0 1px 1px #ffffff24,
+    0 18px 50px #0004;
+}
+.glass:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(125deg,#ffffff0d,transparent 38%,transparent 75%,#d8b66c09);
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:43px;
+}
+.about-card{padding:32px;min-height:220px}
+.card-number{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:#d8b66c55;
+  margin-bottom:18px;
+}
+.about-card h3{
+  color:var(--lightgold);
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin-bottom:12px;
+}
+.about-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+}
+
+/* MENU */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:17px;
+  margin-top:43px;
+}
+.menu-card{
+  padding:27px;
+  min-height:185px;
+  transition:transform .35s,border-color .35s;
+}
+.menu-card:hover{
+  transform:translateY(-5px);
+  border-color:#d8b66c77;
+}
+.menu-icon{
+  font-size:30px;
+  margin-bottom:22px;
+  color:var(--gold);
+}
+.menu-card h3{
+  font-family:'Playfair Display',serif;
+  color:var(--lightgold);
+  font-size:24px;
+  margin-bottom:9px;
+}
+.menu-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* LOCATION */
+.location-card{
+  margin-top:42px;
+  padding:35px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:20px;
+}
+.location-card h3{
+  font-family:'Playfair Display',serif;
+  color:var(--lightgold);
+  font-size:28px;
+  margin-bottom:12px;
+}
+.location-card p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+}
+.location-symbol{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  color:var(--gold);
+  border:1px solid #d8b66c66;
+  background:#d8b66c0d;
+}
+.location-actions{margin-top:23px}
+
+/* FOOTER */
+footer{
+  border-top:1px solid #ffffff18;
+  padding:28px 8%;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#888e83;
+  font-size:10px;
+  letter-spacing:1.5px;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:760px){
+  nav{height:59px;top:10px;padding:0 13px}
+  .brand{font-size:16px}
+  .nav-tag{font-size:7px;letter-spacing:1px}
+  .nav-link{font-size:9px;padding:9px 12px}
+  .hero{
+    grid-template-columns:1fr;
+    padding:130px 7% 65px;
+    gap:15px;
+  }
+  .hero h1{font-size:clamp(50px,13vw,76px)}
+  .art-wrap{min-height:390px}
+  .art-glass{width:min(85%,340px)}
+  .label-one{left:0}
+  .label-two{right:0}
+  .section{padding:80px 7%}
+  .about-grid,.menu-grid{grid-template-columns:1fr}
+  .about-card{min-height:190px;padding:26px}
+  .menu-card{min-height:165px}
+  .location-card{grid-template-columns:1fr;padding:27px}
+  .location-symbol{width:60px;height:60px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient a"></div>
+<div class="ambient b"></div>
+
+<nav>
+  <div class="brand">Shyam Bihari.</div>
+  <div class="nav-tag">EST. BAG AHA 2</div>
+  <a class="nav-link" href="#location">FIND US ↗</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A TASTE OF TRADITION</div>
+    <h1>Shyam Bihari<br><span>Pan Store.</span></h1>
+
+    <p class="hero-copy">
+      Tradition, freshness and a little touch of elegance.
+      Welcome to Shyam Bihari Pan Store — your neighbourhood
+      destination in Bagaha 2.
+    </p>
+
+    <div class="actions">
+      <a href="#menu" class="btn primary">EXPLORE OUR MENU ↗</a>
+      <a href="#location" class="btn secondary">VISIT OUR STORE</a>
+    </div>
+
+    <div class="hero-note">STATION ROAD · BAGAHA 2 · BIHAR</div>
+  </div>
+
+  <div class="art-wrap">
+    <div class="floating-label label-one">✦ FRESHNESS</div>
+
+    <div class="art-glass">
+      <svg class="leaf-svg" viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="leaf" x1="90" y1="30" x2="310" y2="400" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#a5bd78"/>
+            <stop offset=".3" stop-color="#427b42"/>
+            <stop offset=".72" stop-color="#174c2b"/>
+            <stop offset="1" stop-color="#092918"/>
+          </linearGradient>
+          <linearGradient id="vein" x1="150" y1="50" x2="250" y2="400" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#f1e0a4"/>
+            <stop offset="1" stop-color="#9a8d4c"/>
+          </linearGradient>
+        </defs>
+        <path d="M200 20 C310 60 380 150 345 255 C315 347 250 397 200 420 C150 397 85 347 55 255 C20 150 90 60 200 20Z" fill="url(#leaf)" stroke="#d7c58b" stroke-opacity=".5" stroke-width="2"/>
+        <path d="M200 414 C196 310 190 205 200 29" stroke="url(#vein)" stroke-width="4" stroke-linecap="round"/>
+        <g stroke="#d3dba1" stroke-opacity=".65" stroke-width="2" stroke-linecap="round">
+          <path d="M198 325 Q120 255 75 190"/>
+          <path d="M198 325 Q275 255 325 190"/>
+          <path d="M198 265 Q120 195 78 128"/>
+          <path d="M198 265 Q280 195 320 128"/>
+          <path d="M198 200 Q145 145 116 85"/>
+          <path d="M198 200 Q260 145 290 85"/>
+          <path d="M198 145 Q165 105 158 58"/>
+          <path d="M198 145 Q230 105 242 58"/>
+          <path d="M198 370 Q130 330 91 273"/>
+          <path d="M198 370 Q270 330 310 273"/>
+        </g>
+        <path d="M115 104 Q160 50 199 31" stroke="#e4e9b9" stroke-opacity=".45" stroke-width="9" stroke-linecap="round"/>
+        <path d="M135 145 Q158 117 179 108" stroke="#ffffff" stroke-opacity=".15" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="art-caption">THE ART OF PAAN</div>
+    </div>
+
+    <div class="floating-label label-two">✧ ROOTED IN TRADITION</div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-top reveal">
+    <div class="section-tag">01 / OUR STORY</div>
+    <h2>A familiar place.<br>A timeless feeling.</h2>
+    <p class="section-intro">
+      A local store inspired by the simple charm of traditional
+      Indian paan culture, presented with a modern touch.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="glass about-card reveal">
+      <div class="card-number">01</div>
+      <h3>Traditional Touch</h3>
+      <p>
+        Celebrating the familiar flavours and culture of
+        traditional paan, with care and attention.
+      </p>
+    </div>
+
+    <div class="glass about-card reveal">
+      <div class="card-number">02</div>
+      <h3>Neighbourhood Store</h3>
+      <p>
+        A convenient local destination for everyday store
+        essentials and familiar favourites.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="section-top reveal">
+    <div class="section-tag">02 / OUR COLLECTION</div>
+    <h2>Explore the<br>store experience.</h2>
+    <p class="section-intro">
+      A glimpse of the traditional and everyday categories
+      available at our store.
+    </p>
+  </div>
+
+  <div class="menu-grid">
+    <div class="glass menu-card reveal">
+      <div class="menu-icon">✿</div>
+      <h3>Meetha Paan</h3>
+      <p>A traditional sweet paan experience.</p>
+    </div>
+
+    <div class="glass menu-card reveal">
+      <div class="menu-icon">❋</div>
+      <h3>Sada Paan</h3>
+      <p>A simple and traditional paan variety.</p>
+    </div>
+
+    <div class="glass menu-card reveal">
+      <div class="menu-icon">◇</div>
+      <h3>Special Paan</h3>
+      <p>Explore the store's special paan varieties.</p>
+    </div>
+
+    <div class="glass menu-card reveal">
+      <div class="menu-icon">✧</div>
+      <h3>General Store</h3>
+      <p>Everyday essentials and neighbourhood convenience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+  <div class="section-top reveal">
+    <div class="section-tag">03 / FIND OUR STORE</div>
+    <h2>Right around<br>your neighbourhood.</h2>
+  </div>
+
+  <div class="glass location-card reveal">
+    <div>
+      <h3>Shyam Bihari Pan Store</h3>
+      <p>
+        Station Road, Near Bagaha 2 Railway Station Area,<br>
+        Bagaha 2, West Champaran,<br>
+        Bihar, India.
+      </p>
+
+      <div class="location-actions">
+        <a class="btn primary"
+           href="https://www.google.com/maps/search/?api=1&query=Station+Road+Bagaha+2+West+Champaran+Bihar"
+           target="_blank" rel="noopener">
+          OPEN GOOGLE MAPS ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="location-symbol">⌖</div>
+  </div>
+</section>
+
+<footer>
+  <span>SHYAM BIHARI PAN STORE</span>
+  <span>BAGAHA 2 · BIHAR</span>
+  <span>ROOTED IN TRADITION.</span>
+</footer>
+
+<script>
+/* Smooth one-time reveal */
+const items=document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.08});
+
+  items.forEach(item=>observer.observe(item));
+}else{
+  items.forEach(item=>item.classList.add("show"));
+}
+</script>
+
+</body>
+</html>
